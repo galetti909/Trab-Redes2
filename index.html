@@ -247,7 +247,7 @@
               
               <br />
               <br />
-              <b>Distribuição geográfica:</b> Normalmente, os sensores são distribuídos em uma área extensa para cobrir grandes regiões
+              <b>Distribuição espacial:</b> Normalmente, os sensores são distribuídos em uma área extensa para cobrir grandes regiões
                 ou ambientes de difícil acesso, coletando dados de múltiplos pontos, porém, a distribuição pode variar de acordo com a aplicação.
               
               <br />
@@ -286,7 +286,7 @@
               para a estação base, a energia utilizada na comunicação é maior do que a consumida na coleta e no processamento dos dados. Esse modelo, embora 
               simples, não é ideal para aplicações que exigem economia de energia e longa duração dos nós.
               <br />
-              <div class="d-flex justify-content-center align-items-center" style="height: 700px;">
+              <div class="d-flex justify-content-center align-items-center" style="height: 400px;">
                 <img src="assets/img/wsn single-hop.webp" style="height: 60%;" >
               </div>
               <figcaption class="d-flex justify-content-center align-items-center fs-8 mt-2"><a href="https://i0.wp.com/iot4beginners.com/wp-content/uploads/2021/05/single-hop.png?w=1080&ssl=1">https://i0.wp.com/iot4beginners.com/wp-content/uploads/2021/05/single-hop.png?w=1080&ssl=1</a></figcaption>
@@ -299,7 +299,7 @@
               cada nó realiza transmissões de curta distância até que a informação atinja o destino final. A arquitetura de múltiplos saltos é mais 
               adequada para RSSFs com nós distribuídos em grandes áreas, uma vez que melhora a eficiência energética e aumenta a durabilidade da rede.
               <br />
-              <div class="d-flex justify-content-center align-items-center" style="height: 700px;">
+              <div class="d-flex justify-content-center align-items-center" style="height: 400px;">
                 <img src="assets/img/wsn multi-hop.webp" style="height: 60%;" >
               </div>
               <figcaption class="d-flex justify-content-center align-items-center fs-8 mt-2"><a href="https://i0.wp.com/iot4beginners.com/wp-content/uploads/2021/05/Multi-hop.png?w=1080&ssl=1">https://i0.wp.com/iot4beginners.com/wp-content/uploads/2021/05/Multi-hop.png?w=1080&ssl=1</a></figcaption>
@@ -312,7 +312,7 @@
               múltiplos saltos. Esse tipo de arquitetura é vantajoso em redes onde os nós são homogêneos, e a comunicação entre pares é importante para garantir 
               redundância e cobertura eficiente do ambiente.
               <br />
-              <div class="d-flex justify-content-center align-items-center" style="height: 700px;">
+              <div class="d-flex justify-content-center align-items-center" style="height: 400px;">
                 <img src="assets/img/swn plana.webp" style="height: 60%;" >
               </div>
               <figcaption class="d-flex justify-content-center align-items-center fs-8 mt-2"><a href="https://i0.wp.com/iot4beginners.com/wp-content/uploads/2021/05/basestation.png?w=1080&ssl=1">https://i0.wp.com/iot4beginners.com/wp-content/uploads/2021/05/basestation.png?w=1080&ssl=1</a></figcaption>
@@ -326,22 +326,50 @@
               responsabilidade de comunicação com a estação base, aliviando os demais nós. Essa estrutura hierárquica é especialmente útil em 
               redes de grande escala, onde a otimização do uso de energia e a redução de redundância são essenciais para o desempenho geral da RSSF.
               <br />
-              <div class="d-flex justify-content-center align-items-center" style="height: 700px;">
+              <div class="d-flex justify-content-center align-items-center" style="height: 400px;">
                 <img src="assets/img/wsn hierarquia.webp" style="height: 60%;" >
               </div>
               <figcaption class="d-flex justify-content-center align-items-center fs-8 mt-2"><a href="https://i0.wp.com/iot4beginners.com/wp-content/uploads/2021/05/basestationss.png?w=1080&ssl=1">https://i0.wp.com/iot4beginners.com/wp-content/uploads/2021/05/basestationss.png?w=1080&ssl=1</a></figcaption>
             </p>  
             <p>
               <h3 class="mb-0">Topologia</h3>
-              <br />Não há um padrão estabeleido para a topologia das RSSF, podendo ela, assim, variar de uma simples rede em estrela até malhas densamente complexas,
-                porém sempre possuindo um nó central, não necesseriamente posicionado ao centro, chamado de sink (“sovedouro”), onde as informações são agregadas e é realizada a comunicação com o meio externo.
-              <br />
+              <p>
+              </p><h4 class="mb-0">Topologia em Estrela</h4>
+              <br />Na topologia em estrela, o hub ou switch atua como um nó central único. Nessa rede, cada nó está conectado ao hub. A topologia em estrela é muito fácil de implementar, projetar e expandir.
+               Como todos os dados passam pelo hub, ele desempenha um papel crucial na rede, e uma falha no hub pode resultar na falha de toda a rede.
+
+               <div class="d-flex justify-content-center align-items-center" style="height: 400px;">
+                <img src="assets/img/star-topology.webp" style="height: 60%;" >
+              </div>
+              <figcaption class="d-flex justify-content-center align-items-center fs-8 mt-2"><a href="https://i0.wp.com/iot4beginners.com/wp-content/uploads/2021/05/star-topology.png?w=1080&ssl=1">https://i0.wp.com/iot4beginners.com/wp-content/uploads/2021/05/star-topology.png?w=1080&ssl=1</a></figcaption>
+
             </p>
+
             <p>
-              <br />Dessa maneira os nós-sensores conseguem gastar o mínimo de energia com comunicação, ao apenas enviar pacotes aos seus vizinhos. 
-                Com isso, não há necessidade do estabelecimento de nenhuma infraestrutura, já que os próprios nós são capazes de se detectarem e 
-                organizarem, permitindo, inclusive, que os seus posicionamentos sejam aleatórios.
-              <br />
+            </p>
+            <br/><h4 class="mb-0">Topologia em Árvore</h4>
+            <br/>Na topologia em árvore, um único nó raiz no topo está conectado a vários nós no nível seguinte, e essa estrutura continua hierarquicamente. 
+            O poder de processamento e o consumo de energia são maiores no nó raiz e vão diminuindo conforme descemos na ordem hierárquica.
+             <br/>
+             <div class="d-flex justify-content-center align-items-center" style="height: 400px;">
+              <img src="assets/img/tree-topology.webp" style="height: 60%;" >
+            </div>
+            <figcaption class="d-flex justify-content-center align-items-center fs-8 mt-2"><a href="https://i0.wp.com/iot4beginners.com/wp-content/uploads/2021/05/tree-topology.png?w=1080&ssl=1">https://i0.wp.com/iot4beginners.com/wp-content/uploads/2021/05/tree-topology.png?w=1080&ssl=1</a></figcaption>
+
+          </p>
+
+          <p>
+          </p><h4 class="mb-0">Topologia em Malha</h4>
+          <br/>Na topologia em malha, além de transmitir seus próprios dados, cada nó também atua como um retransmissor para transmitir os dados de outros nós conectados.
+          Existem dois tipos de topologia em malha: malha totalmente conectada e malha parcialmente conectada.<br/>
+          Na malha totalmente conectada, cada nó está conectado a todos os outros nós. Na malha parcialmente conectada, um nó está conectado a um ou mais nós vizinhos.
+           <br/>
+           <div class="d-flex justify-content-center align-items-center" style="height: 400px;">
+            <img src="assets/img/mesh-topology.webp" style="height: 60%;" >
+          </div>
+          <figcaption class="d-flex justify-content-center align-items-center fs-8 mt-2"><a href="https://i0.wp.com/iot4beginners.com/wp-content/uploads/2021/05/mesh-topology.png?w=1080&ssl=1">https://i0.wp.com/iot4beginners.com/wp-content/uploads/2021/05/mesh-topology.png?w=1080&ssl=1</a></figcaption>
+
+        </p>
             </p>
             <p>
               <h3 class="mb-0">Componentes</h3>
