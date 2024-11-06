@@ -257,14 +257,85 @@
               <br />
             </p>
             <p>
-              <h3 class="mb-0">Topologia</h3>
-              <br />Não há um padrão estabeleido para a topologia das RSSF, podendo ela, assim, variar de uma simples rede em estrela até malhas densamente complexas,
-                porém sempre possuindo um nó central, não necesseriamente posicionado ao centro, chamado de sink (“sovedouro”), onde as informações são agregadas e é realizada a comunicação com o meio externo.
+              <h3 class="mb-0">Arquitetura</h3>
+              <br />A arquitetura de rede é essencial em uma RSSF quando um grande número de nós sensores é implantado em uma área extensa para 
+              monitorar um ambiente físico de forma cooperativa. A rede não apenas permite a comunicação entre os nós sensores, mas também com 
+              uma estação base, que centraliza as informações e age como um ponto de conexão com outras redes e com a internet. A arquitetura 
+              escolhida influencia diretamente o desempenho, o consumo de energia e a eficiência da comunicação entre nós.
               <br />
               <div class="d-flex justify-content-center align-items-center" style="height: 700px;">
                 <img src="assets/img/wsn topologia.png" style="height: 60%;" >
               </div>
+              <br />
               <figcaption class="d-flex justify-content-center align-items-center fs-8 mt-2"><a href="https://media.monolithicpower.com/wysiwyg/Educational/Diagram_Recreation_-_Sensors_Chapter_4_Fig3-_960_x_650.png">https://media.monolithicpower.com/wysiwyg/Educational/Diagram_Recreation_-_Sensors_Chapter_4_Fig3-_960_x_650.png</a></figcaption>
+            </p>
+            <p>
+              <br />
+              <h4 class="mb-0">Estação Base</h4>
+              <br />A estação base (BS) desempenha um papel central nas RSSFs, enviando comandos aos nós sensores e recebendo dados coletados por eles. 
+              Além de coordenar as atividades dos sensores, a estação base também atua como um gateway para outras redes, transmitindo informações 
+              processadas para o usuário final por meio da internet. Esse ponto de centralização é essencial para o controle da rede e o envio de 
+              dados para locais remotos, facilitando o acesso e o monitoramento em tempo real.
+              <br />
+            </p>
+            <p>
+              <br />
+              <h4 class="mb-0">Salto Único (Single-Hop)</h4>
+              <br />Em uma arquitetura de rede de salto único, cada nó sensor é conectado diretamente à estação base. Essa configuração permite a transmissão de dados 
+              a longas distâncias, mas possui uma desvantagem significativa: o alto consumo de energia. Como os nós sensores precisam enviar dados diretamente 
+              para a estação base, a energia utilizada na comunicação é maior do que a consumida na coleta e no processamento dos dados. Esse modelo, embora 
+              simples, não é ideal para aplicações que exigem economia de energia e longa duração dos nós.
+              <br />
+              <div class="d-flex justify-content-center align-items-center" style="height: 700px;">
+                <img src="assets/img/wsn single-hop.webp" style="height: 60%;" >
+              </div>
+              <figcaption class="d-flex justify-content-center align-items-center fs-8 mt-2"><a href="https://i0.wp.com/iot4beginners.com/wp-content/uploads/2021/05/single-hop.png?w=1080&ssl=1">https://i0.wp.com/iot4beginners.com/wp-content/uploads/2021/05/single-hop.png?w=1080&ssl=1</a></figcaption>
+            </p>
+            <p>
+              <br />
+              <h4 class="mb-0">Múltiplos Saltos (Multi-Hop)</h4>
+              <br />A arquitetura de rede de múltiplos saltos é uma alternativa eficiente à de salto único. Nesse modelo, os dados dos nós sensores são 
+              transmitidos através de um ou mais nós intermediários antes de alcançar a estação base. Essa abordagem reduz o consumo de energia, pois 
+              cada nó realiza transmissões de curta distância até que a informação atinja o destino final. A arquitetura de múltiplos saltos é mais 
+              adequada para RSSFs com nós distribuídos em grandes áreas, uma vez que melhora a eficiência energética e aumenta a durabilidade da rede.
+              <br />
+              <div class="d-flex justify-content-center align-items-center" style="height: 700px;">
+                <img src="assets/img/wsn multi-hop.webp" style="height: 60%;" >
+              </div>
+              <figcaption class="d-flex justify-content-center align-items-center fs-8 mt-2"><a href="https://i0.wp.com/iot4beginners.com/wp-content/uploads/2021/05/Multi-hop.png?w=1080&ssl=1">https://i0.wp.com/iot4beginners.com/wp-content/uploads/2021/05/Multi-hop.png?w=1080&ssl=1</a></figcaption>
+            </p>
+            <p>
+              <br />
+              <h4 class="mb-0">Arquitetura de Rede Plana</h4>
+              <br />Na arquitetura de rede plana, todos os nós sensores possuem as mesmas funções e a estação base envia comandos para todos os nós simultaneamente. 
+              Somente os nós sensores que contêm a informação ou que correspondem à consulta realizada pela estação base respondem, utilizando um caminho de 
+              múltiplos saltos. Esse tipo de arquitetura é vantajoso em redes onde os nós são homogêneos, e a comunicação entre pares é importante para garantir 
+              redundância e cobertura eficiente do ambiente.
+              <br />
+              <div class="d-flex justify-content-center align-items-center" style="height: 700px;">
+                <img src="assets/img/swn plana.webp" style="height: 60%;" >
+              </div>
+              <figcaption class="d-flex justify-content-center align-items-center fs-8 mt-2"><a href="https://i0.wp.com/iot4beginners.com/wp-content/uploads/2021/05/basestation.png?w=1080&ssl=1">https://i0.wp.com/iot4beginners.com/wp-content/uploads/2021/05/basestation.png?w=1080&ssl=1</a></figcaption>
+            </p>  
+            <p>
+              <br />
+              <h4 class="mb-0">Arquitetura de Rede Hierárquica</h4>
+              <br />A arquitetura hierárquica organiza os nós sensores em clusters, com cada cluster possuindo um nó líder, chamado de cabeça de cluster. 
+              Os nós sensores transmitem seus dados para o cabeça de cluster, que realiza a agregação dos dados e os retransmite para a estação 
+              base. Esse modelo permite uma comunicação mais eficiente e reduz o consumo de energia, pois os cabeças de cluster assumem a 
+              responsabilidade de comunicação com a estação base, aliviando os demais nós. Essa estrutura hierárquica é especialmente útil em 
+              redes de grande escala, onde a otimização do uso de energia e a redução de redundância são essenciais para o desempenho geral da RSSF.
+              <br />
+              <div class="d-flex justify-content-center align-items-center" style="height: 700px;">
+                <img src="assets/img/wsn hierarquia.webp" style="height: 60%;" >
+              </div>
+              <figcaption class="d-flex justify-content-center align-items-center fs-8 mt-2"><a href="https://i0.wp.com/iot4beginners.com/wp-content/uploads/2021/05/basestationss.png?w=1080&ssl=1">https://i0.wp.com/iot4beginners.com/wp-content/uploads/2021/05/basestationss.png?w=1080&ssl=1</a></figcaption>
+            </p>  
+            <p>
+              <h3 class="mb-0">Topologia</h3>
+              <br />Não há um padrão estabeleido para a topologia das RSSF, podendo ela, assim, variar de uma simples rede em estrela até malhas densamente complexas,
+                porém sempre possuindo um nó central, não necesseriamente posicionado ao centro, chamado de sink (“sovedouro”), onde as informações são agregadas e é realizada a comunicação com o meio externo.
+              <br />
             </p>
             <p>
               <br />Dessa maneira os nós-sensores conseguem gastar o mínimo de energia com comunicação, ao apenas enviar pacotes aos seus vizinhos. 
@@ -407,9 +478,12 @@
               número de mensagens enviadas e, consequentemente, economizando energia.
 
               <br />
+              <br /><br />
             </p>
+            <h2 class="mb-0">Tecnologias</h2>
             <p>
-              E perceptível a variedade de tecnologias para utilizadas para possibilitar e aprimorar a comunicação eficiente 
+              <br />
+              É perceptível a variedade de tecnologias para utilizadas para possibilitar e aprimorar a comunicação eficiente 
               entre dispositivos nas Redes de Sensores Sem Fio. A seguir, são apresentadas as características de algumas das 
               principais para as RSSFs.
               <br />
@@ -511,6 +585,7 @@
               <b>Limitações:</b> Largura de banda baixa, limitada para transmissões esparsas e de pequeno volume de dados.
 
               <br />
+              <br /><br />
 
               A tabela a seguir resume e compara as tecnologias apresentadas em detalhes:
 
@@ -586,6 +661,51 @@
                   </tr>
               </tbody>
           </table>
+          <br /><br />
+          <h2 class="mb-0">Interoperabilidade</h2>
+          <p>
+            <br />
+            Uma das qualidades das WSN é a interoperabilidade de muitas das suas tecnologias. Refere-se à capacidade de diferentes sistemas e 
+            tecnologias se comunicarem e operarem juntos de forma eficiente. Aqui estão alguns exemplos práticos de interoperabilidade em RSSFs:
+
+          </p>
+
+          <h3 class="mb-0">Integração de 6LoWPAN e Zigbee:</h3>
+          <p>
+            <br />LoRa é uma tecnologia projetada para comunicação sem fio de longo alcance, com um foco particular em eficiência energética. 
+            Sua arquitetura permite a transmissão de dados a distâncias que podem ultrapassar 15 km em áreas rurais. 
+            O uso de modulação LoRa permite que os dispositivos operem em bandas de frequência subgigahertz, garantindo 
+            resistência a interferências e maior alcance. Essa tecnologia é frequentemente utilizada em aplicações de 
+            monitoramento ambiental e cidades inteligentes, onde a cobertura geográfica é essencial.
+
+            <br />
+            <b>Cenário:</b>  Em uma casa inteligente, dispositivos Zigbee, como lâmpadas e sensores de movimento, podem ser integrados a uma rede 6LoWPAN.
+            <br />
+            <br />
+            <b>Exemplo:</b> Um sensor de movimento Zigbee detecta movimento e, em vez de enviar um sinal diretamente a um controlador local, ele se conecta 
+            a um gateway 6LoWPAN, que então transmite as informações para a nuvem, onde são processadas e usadas para acender as luzes ou enviar alertas ao usuário.
+          </p>
+
+          <h3 class="mb-0">LoRaWAN e Sistemas de Monitoramento de Água:</h3>
+          <p>
+            <br />
+            <b>Cenário:</b> Um sistema de monitoramento de qualidade da água utiliza sensores que comunicam dados via LoRaWAN.
+            <br />
+            <br />
+            <b>Exemplo:</b> Os sensores de qualidade da água, que podem ser baseados em diferentes tecnologias (por exemplo, sensores ópticos, químicos), 
+            enviam dados a um gateway LoRaWAN. Este gateway, por sua vez, transmite as informações para uma plataforma de gerenciamento em nuvem que 
+            pode integrar dados de várias fontes, permitindo um monitoramento abrangente e ações coordenadas.
+          </p>
+
+          <h3 class="mb-0">Interoperabilidade entre Sistemas de Segurança:</h3>
+          <p>
+            <br />
+            <b>Cenário:</b> Um sistema de segurança em um prédio utiliza câmeras IP, sensores de movimento e alarmes conectados por diferentes protocolos.
+            <br />
+            <br />
+            <b>Exemplo:</b> Os sensores de movimento, que podem usar Zigbee, enviam dados a um controlador que, por sua vez, pode se comunicar com as câmeras IP 
+            via Wi-Fi. Se um movimento for detectado, o sistema ativa automaticamente as câmeras para gravar e envia uma notificação ao aplicativo do usuário.
+          </p>
         </div>
       </div>
     </section>
@@ -954,6 +1074,22 @@
               <a
                 href="https://www.monolithicpower.com/en/learning/mpscholar/sensors/advanced-topics-in-sensing/wireless-sensing-networks?srsltid=AfmBOoqsTrl4VqIVdwi4vITKyyXiKhJigFybRgcEUGNp5g5Xv7H_RWO_">
                 https://www.monolithicpower.com/en/learning/mpscholar/sensors/advanced-topics-in-sensing/wireless-sensing-networks?srsltid=AfmBOoqsTrl4VqIVdwi4vITKyyXiKhJigFybRgcEUGNp5g5Xv7H_RWO_
+              </a>
+              <br /><br />
+              <b>Página, Silicon Labs</b>
+              <br />
+              Disponível em:
+              <a
+                href="https://www.silabs.com/">
+                https://www.silabs.com/
+              </a>
+              <br /><br />
+              <b>Página, IoT For Beginners</b>
+              <br />
+              Disponível em:
+              <a
+                href="https://iot4beginners.com/basics-of-wireless-sensors-networks-topologies-and-application/">
+                https://iot4beginners.com/basics-of-wireless-sensors-networks-topologies-and-application/
               </a>
               <br /><br />
               <b>Livros:</b>
