@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>RSSF Redes II</title>
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="css/styles.css" rel="stylesheet" />
+  <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+  <style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: rgb(17, 16, 29);
+        color: white;
+    }
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+</style>
+</head>
+
+<body id="page-top" style="width: 100%;">
+  <!-- Navigation-->
+  <div class="sidebar" style="
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0;
+        height: 100%;
+      ">
+    <ul class="nav-links" style="
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          margin-top: 2vh;
+        ">
+      <li>
+        <a href="#Introdução">
+          <i class="bx bx-caret-down-circle"></i>
+          <span class="link_name">Introdução</span>
+        </a>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#Arquitetura">
+            <i class="bx bx-layer"></i>
+            <span class="link_name">Características, Arquitetura e Componentes</span>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#Redes">
+            <i class="bx bx-sitemap"></i>
+            <span class="link_name">Comunicação e Protocolos</span>
+          </a>
+        </div>
+      </li>
+      <li>
+        <a href="#Desafios">
+          <i class="bx bx-trending-down"></i>
+          <span class="link_name">Desafios e Limitações</span>
+        </a>
+      </li>
+      <li>
+        <a href="#CasosDeUso">
+          <i class="bx bx-line-chart"></i>
+          <span class="link_name">Casos de Uso e Exemplos Práticos</span>
+        </a>
+      </li>
+      <li>
+        <a href="#Conclusão">
+          <i class="bx bx-history"></i>
+          <span class="link_name">Conclusão</span>
+        </a>
+      </li>
+      <li>
+        <a href="#Bibliografia">
+          <i class="bx bx-food-menu"></i>
+          <span class="link_name">Bibliografia</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!-- Page Content-->
+  <div class="container-fluid p-0" style="width: 100%; margin-left: 20vw;">
+    <!-- introducao-->
+    <section class="resume-section" id="introducao">
+      <div class="resume-section-content">
+        <h1 class="mb-0">Redes de Sensores Sem Fio</h1>
+        <div class="subheading mb-5">
+          REDES DE COMPUTADORES II · 2024/2 · UFRJ
+        </div>
+        <div class="subheading-top mb-30 d-flex justify-content-between">
+          <p class="lead mb-5 w-45">
+            <b>Alunos:</b> <br />
+            Anderson Costa -
+            <a href="mailto:@poli.ufrj.br">anderson.costa.20221@poli.ufrj.br</a>
+            <br />
+            João Galetti -
+            <a href="mailto:@poli.ufrj.br">galetti.20221@poli.ufrj.br</a>
+            <br />
+            Gustavo Pessanha -
+            <a href="mailto:gupessanha@poli.ufrj.br">gupessanha@poli.ufrj.br</a>
+          </p>
+          <img src="assets/img/poli_ufrj.png" class="w-50" alt="description">
+        </div>
+        <p class="lead mt-5" style="text-align: justify">
+          <i>Este trabalho foi totalmente produzido pelos autores que declaram
+            não terem violado os direitos autorais de terceiros, sejam eles
+            pessoas físicas ou jurídicas. Havendo textos, tabelas e figuras
+            transcritos de obras de terceiros com direitos autorais protegidos
+            ou de domínio público tal como idéias e conceitos de terceiros,
+            mesmo que sejam encontrados na Internet, os mesmos estão com os
+            devidos créditos aos autores originais e estão incluídas apenas
+            com o intuito de deixar o trabalho autocontido. O(s) autor(es)
+            tem(êm) ciência dos Artigos 297 a 299 do Código Penal Brasileiro e
+            também que o uso do artifício de copiar/colar texto de outras
+            fontes e outras formas de plágio é um ato ilícito, condenável e
+            passível de punição severa. No contexto da Universidade a punição
+            não precisa se restringir à reprovação na disciplina e pode gerar
+            um processo disciplinar que pode levar o(s) aluno(s) à
+            suspensão;</i>
+        </p>
+      </div>
+    </section>
+    <hr class="m-0" />
+
+    <!-- Introdução-->
+    <section class="resume-section" id="Introdução">
+      <div class="resume-section-content">
+        <div class="subheading-top mb-30 d-flex justify-content-between">
+        <h2 class="mb-5 d-flex align-items-end">Introdução</h2>
+        </div>
+        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="flex-grow-1">
+            <h3 class="mb-0">O que são Redes de Sensores Sem Fio</h3>
+            <p>
+              <br />As Redes de Sensores Sem Fio (RSSFs), em inglês, Wireless Sensor Networks (WSNs), são redes formadas por um conjunto de dispositivos 
+              autônomos, chamados sensores, que coletam e transmitem dados por meio de comunicação sem fio. Esses sensores são distribuídos estrategicamente 
+              em uma área de interesse para monitorar diferentes condições ou eventos. A comunicação entre os sensores ocorre de forma colaborativa e 
+              descentralizada, permitindo que dados sejam processados localmente, em nós intermediários, antes de serem enviados para um ponto central 
+              de análise, ou completamente no ponto central, muitas vezes denominado estação base. Em algumas configurações, sensores podem tomar decisões 
+              ou realizar análises preliminares de forma independente, reduzindo a carga de dados transmitidos e aumentando a eficiência da rede.
+              <br />
+            </p>
+            <h3 class="mb-0">História e Motivações</h3>
+            <p>
+              <br />Para compreender as características das RSSFs atuais, é útil revisar brevemente sua história. Como muitas tecnologias avançadas, 
+              as RSSFs surgiram em aplicações militares e industriais pesadas, bem diferentes das aplicações de consumo e industriais leves de hoje. 
+              A primeira rede que se assemelha a uma RSSF moderna é o Sistema de Vigilância Sonora (SOSUS), desenvolvido pelos EUA nos anos 1950 para 
+              detectar submarinos soviéticos com hidrofones submersos nos oceanos Atlântico e Pacífico. Essa tecnologia ainda é usada hoje, mas com 
+              objetivos mais pacíficos, como monitorar a vida marinha e atividade vulcânica.
+            </p>
+
+            <div class="d-flex justify-content-center align-items-center" style="height: 300px;">
+              <img src="assets/img/wsn militar.gif" style="height: 100%;" >
+            </div>
+            <figcaption class="d-flex justify-content-center align-items-center fs-8 mt-2"><a href="https://www.teleco.com.br/imagens/tutoriais/tutorialrsfio_figura3.gif">https://www.teleco.com.br/imagens/tutoriais/tutorialrsfio_figura3.gif</a></figcaption>
+            <p class="d-flex justify-content-center align-items-center fs-8 mt-2">
+              Exemplo de uso militar de RSSF para monitorar regiões <br>
+            </p>
+            <p>
+              <br />Nos anos 1980, refletindo o investimento em tecnologias que deram origem à Internet, a DARPA criou o programa de Redes de Sensores 
+              Distribuídos (DSN) para explorar os desafios das redes de sensores distribuídas/sem fio. O programa se expandiu para o meio acadêmico, 
+              em instituições como a Universidade Carnegie Mellon e o MIT, ampliando o uso de RSSFs para pesquisa científica civil.
+            </p>
+            <p>
+              <br />Governos e universidades começaram a empregar RSSFs em monitoramento de qualidade do ar, detecção de incêndios florestais, 
+              prevenção de desastres, estações meteorológicas e monitoramento estrutural. Com a entrada de engenheiros em grandes empresas como 
+              IBM e Bell Labs, o uso de RSSFs se expandiu para áreas industriais pesadas, como distribuição de energia e tratamento de águas residuais.
+            </p>
+            <p>
+              <br />Apesar da demanda crescente, a expansão das RSSFs encontrou obstáculos. Suas aplicações militares e industriais, baseadas em 
+              sensores caros e protocolos proprietários, priorizavam desempenho e funcionalidade, enquanto fatores como custo, consumo de energia e 
+              escalabilidade eram secundários. Essa combinação de altos custos e baixo volume de produção limitou a adoção das RSSFs em um maior número de aplicações.
+            <p>
+              <br />As principais vantagens das redes de sensores sem fio incluem a capacidade de operar em áreas de difícil acesso, onde soluções de rede
+                convencionais seriam impraticáveis, e o baixo consumo de energia dos sensores, que permite uma operação prolongada com pouca manutenção. Além 
+                disso, a flexibilidade e escalabilidade dessas redes motivam seu uso em diversas áreas, pois é possível expandi-las facilmente ao adicionar novos 
+                sensores, sem a necessidade de grandes alterações na infraestrutura. Esses fatores, aliados à crescente demanda por soluções de monitoramento 
+                eficiente, tornam as WSNs uma tecnologia chave para o futuro da Internet das Coisas (IoT) e outras aplicações emergentes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr class="m-0" />
+
+    <!-- Arquitetura-->
+    <section class="resume-section" id="Arquitetura">
+      <div class="resume-section-content">
+        <h2 class="mb-5">Características, Arquitetura e Componentes</h2>
+        <p>
+          A vasta gama de usos e aplicações das RSSF é proveniente de uma série de características e propriedades que tem sua base na arquitetura e 
+          nos componentes que as compõem, exploradas a fundo nessa seção.
+        </p>
+        <div class="justify-content-between mb-5">
+          <div class="flex-grow-1">
+            
+            <p>
+              <h3 class="mb-0">Características</h3>
+              <br />Algumas das principais características das RSSF são:
+
+              <br />
+              <br />
+              <b>Autonomia:</b> Os sensores funcionam de maneira autônoma, coletando e transmitindo dados sem a necessidade de intervenção humana contínua.
+              
+              <br />
+              <br />
+              <b>Capacidade de auto-organização:</b> As RSSFs são capazes de se reconfigurar dinamicamente, formando e ajustando rotas
+                de comunicação de acordo com as mudanças no ambiente ou falhas de sensores.
+              
+              <br />
+              <br />
+              <b>Baixo consumo de energia:</b> Os sensores são projetados para operar com restrições energéticas,
+                utilizando pouca energia para prolongar a vida útil da rede.
+              
+              <br />
+              <br />
+              <b>Escalabilidade:</b> A rede pode ser facilmente expandida com a adição de novos 
+                sensores, sem comprometer o desempenho geral do sistema.
+              
+              <br />
+              <br />
+              <b>Comunicação sem fio:</b> A troca de informações entre os sensores e com a estação base é feita via tecnologias
+                de comunicação sem fio, como rádio, infravermelho ou ultrassom.
+              
+              <br />
+              <br />
+              <b>Distribuição geográfica:</b> Normalmente, os sensores são distribuídos em uma área extensa para cobrir grandes regiões
+                ou ambientes de difícil acesso, coletando dados de múltiplos pontos, porém, a distribuição pode variar de acordo com a aplicação.
+              
+              <br />
+              <br />
+              <b>Tolerância a falhas:</b> As RSSFs são projetadas para continuar operando mesmo quando alguns sensores falham,
+                garantindo a continuidade da coleta e transmissão de dados.              
+              <br />
+            </p>
+            <p>
+              <h3 class="mb-0">Topologia</h3>
+              <br />Não há um padrão estabeleido para a topologia das RSSF, podendo ela, assim, variar de uma simples rede em estrela até malhas densamente complexas,
+                porém sempre possuindo um nó central, não necesseriamente posicionado ao centro, chamado de sink (“sovedouro”), onde as informações são agregadas e é realizada a comunicação com o meio externo.
+              <br />
+              <div class="d-flex justify-content-center align-items-center" style="height: 700px;">
+                <img src="assets/img/wsn topologia.png" style="height: 60%;" >
+              </div>
+              <figcaption class="d-flex justify-content-center align-items-center fs-8 mt-2"><a href="https://media.monolithicpower.com/wysiwyg/Educational/Diagram_Recreation_-_Sensors_Chapter_4_Fig3-_960_x_650.png">https://media.monolithicpower.com/wysiwyg/Educational/Diagram_Recreation_-_Sensors_Chapter_4_Fig3-_960_x_650.png</a></figcaption>
+            </p>
+            <p>
+              <br />Dessa maneira os nós-sensores conseguem gastar o mínimo de energia com comunicação, ao apenas enviar pacotes aos seus vizinhos. 
+                Com isso, não há necessidade do estabelecimento de nenhuma infraestrutura, já que os próprios nós são capazes de se detectarem e 
+                organizarem, permitindo, inclusive, que os seus posicionamentos sejam aleatórios.
+              <br />
+            </p>
+            <p>
+              <h3 class="mb-0">Componentes</h3>
+
+              <div class="d-flex justify-content-center align-items-center" style="height: 300px;">
+                <img src="assets/img/sensor tamanho.gif" style="height: 60%;" >
+              </div>
+              <figcaption class="d-flex justify-content-center align-items-center fs-8 mt-2"><a href="https://www.teleco.com.br/imagens/tutoriais/tutorialrsfio_figura1.gif">https://www.teleco.com.br/imagens/tutoriais/tutorialrsfio_figura1.gif</a></figcaption>
+              <p class="d-flex justify-content-center align-items-center fs-8 mt-2">
+                Comparação de um sensor de WSN com uma moeda de um quarto de dólar<br>
+              </p>
+
+              <br />Quanto aos componentes utilizados, além do sink, que precisa ter 
+                uma interface mais robusta de comunicação, muitas vezes tendo acesso a internet, os demais sensores 
+                possuem essencialmente a mesma estrutura, disposta a seguir:
+              <br />
+              <br />
+              <b>Sensor:</b> O componente responsável por capturar informações do ambiente. Ele pode monitorar 
+              variáveis físicas, químicas ou biológicas, convertendo esses dados em sinais elétricos que serão 
+              processados e transmitidos
+
+              <br />
+              <br />
+              <b>Interface de comunicação:</b> Para comunicação, costuma utilizar-se um transceptor de rádio é 
+              o componente que permite a comunicação sem fio entre os nós da rede e a estação base. Ele recebe 
+              e transmite dados utilizando diferentes protocolos, dependendo das necessidades da rede. Uma antena 
+              costuma ser usada para amplificar o sinal de transmissão.
+
+              <br />
+              <br />
+              <b>Fonte de energia:</b> A fonte de energia alimenta todos os componentes do nó-sensor. A energia 
+              pode ser fornecida por baterias tradicionais, que geralmente precisam de reposição ou recarga, ou 
+              por geradores a partir de fontes naturais, como energia solar, que são soluções sustentáveis e prolongam 
+              a vida útil dos sensores em áreas de difícil acesso. O gerenciamento eficiente do consumo energético é 
+              fundamental para maximizar o tempo de operação do nó.
+
+              <br />
+              <br />
+              <b>Microcontrolador:</b> O microcontrolador é o "cérebro" do nó-sensor, responsável pelo processamento 
+              dos dados coletados pelo sensor e pelo controle da comunicação com outros nós ou com a estação base. 
+              Ele executa as instruções programadas, como coleta periódica de dados, compressão de informações e 
+              gerenciamento de energia, garantindo que o nó-sensor opere de forma otimizada e autônoma.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr class="m-0" />
+
+    <!-- Docker e Redes-->
+    <section class="resume-section" id="Redes">
+      <div class="resume-section-content">
+        <h2 class="mb-5">Comunicação e Protocolos</h2>
+        <div class="port-mapping d-flex justify-content-between align-items-start">
+          <div class="port-mapping-text" style="max-width: 40%;">
+            <p>
+              A partir da disposição dos nós são usados diversos protocolos, organizados nas mesmas 5 camadas utilizadas no modelo TCP/IP, portanto:
+    
+              <br />
+              <br />
+              <b>* Aplicação</b>
+    
+              <br />
+              <br />
+              <b>* Transporte</b>
+    
+              <br />
+              <br />
+              <b>* Rede</b>
+    
+              <br />
+              <br />
+              <b>* Enlace</b>
+    
+              <br />
+              <br />
+              <b>* Física</b>
+            </p>
+          </div>
+          <div class="d-flex align-items-center pl-3">
+              <img src="assets/img/camadas.png" class="mx-auto d-block" style="max-width: 55%; height:50%;">
+          </div>
+        </div>
+        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="flex-grow-1">
+            <h3 class="mb-0">Camada Física</h3>
+            </br>
+            Na camada física, as WSNs lidam com a transmissão de dados brutos sobre um meio de comunicação sem fio. As estratégias 
+            implementadas nesta camada se concentram em minimizar o consumo de energia, uma vez que os nós-sensores têm recursos 
+            limitados. Protocolos de modulação de baixa potência, controle de potência de transmissão e técnicas de codificação 
+            de dados são utilizados para garantir uma comunicação eficiente, mantendo o consumo de energia o mais baixo possível. 
+            Tecnologias como ZigBee, Bluetooth Low Energy (BLE) e IEEE 802.15.4 são comumente usadas nesta camada.
+            <br />
+            <br />
+            <h3 class="mb-0">Camada de Enlace</h3>
+            </br>
+            A camada de enlace de dados nas WSNs tem como principal função garantir uma transmissão de dados confiável 
+            entre os nós e minimizar colisões e perda de pacotes. Devido às limitações energéticas e à natureza dinâmica 
+            das redes, estratégias como esquemas de acesso múltiplo por divisão de tempo (TDMA) e controle de acesso ao meio 
+            (MAC) baseados em economia de energia são implementadas. Protocolos como S-MAC e T-MAC introduzem períodos de 
+            inatividade nos nós para economizar bateria e garantir que a rede funcione de forma robusta, mesmo em ambientes 
+            onde a topologia muda constantemente.
+            <br />
+            <br />
+            <h3 class="mb-0">Camada de Rede</h3>
+            </br>
+            A camada de rede nas WSNs é responsável pelo roteamento de pacotes de dados através da rede de sensores. 
+            Protocolos de roteamento eficientes em termos de energia são cruciais nesta camada para garantir a longevidade 
+            da rede. Estratégias como roteamento baseado em dados, onde os nós tomam decisões de roteamento com base no 
+            conteúdo das mensagens, e protocolos como o Directed Diffusion e o LEACH (Low-Energy Adaptive Clustering Hierarchy), 
+            são usados para otimizar a transmissão de dados e reduzir a quantidade de mensagens enviadas. Essas soluções consideram 
+            a limitação energética dos nós e priorizam a comunicação eficiente entre eles.
+            <br />
+            <br />
+            <h3 class="mb-0">Camada de Transporte</h3>
+            </br>
+            A camada de transporte nas WSNs assegura que os dados transmitidos entre os nós e a estação base cheguem 
+            corretamente, com mecanismos de controle de fluxo e correção de erros. Como as redes de sensores têm restrições 
+            em termos de largura de banda e energia, protocolos de transporte tradicionais como TCP não são ideais. Em vez disso, 
+            são adotadas versões simplificadas de controle de congestionamento, como o TCP sem conexão (UDP) ou protocolos 
+            específicos de WSNs, como o TCP elástico, que economizam energia ao reduzir o número de pacotes de controle e retransmissões 
+            necessárias para garantir a integridade dos dados.
+            <br />
+            <br />
+            </p>
+            <h3 class="mb-0">Camada de Aplicação</h3>
+            <p>
+              <br />Na camada de aplicação, as WSNs implementam serviços específicos para monitorar e interagir com o 
+              ambiente, como detecção de temperatura, umidade, vibração, entre outros. Protocolos leves e adaptados 
+              para as limitações de hardware, como o CoAP (Constrained Application Protocol), são usados para realizar 
+              a comunicação eficiente entre os sensores e os usuários finais. As estratégias nesta camada são projetadas 
+              para otimizar o consumo de energia e melhorar a eficiência da coleta e transmissão de dados. Protocolos de 
+              agregação de dados também são frequentemente usados para combinar várias leituras de sensores, reduzindo o 
+              número de mensagens enviadas e, consequentemente, economizando energia.
+
+              <br />
+            </p>
+            <p>
+              E perceptível a variedade de tecnologias para utilizadas para possibilitar e aprimorar a comunicação eficiente 
+              entre dispositivos nas Redes de Sensores Sem Fio. A seguir, são apresentadas as características de algumas das 
+              principais para as RSSFs.
+              <br />
+            </p>
+
+            <h3 class="mb-0">6LoWPAN (IPv6 over Low Power Wireless Personal Area Networks)</h3>
+            <p>
+              <br />A 6LoWPAN é uma arquitetura que permite a comunicação de dispositivos de baixo consumo de energia na Internet, 
+              usando o protocolo IPv6. Essa tecnologia compacta os cabeçalhos de pacotes IP para que possam ser 
+              transmitidos em redes com restrições de largura de banda e energia. Na arquitetura 6LoWPAN, 
+              dispositivos finais, como sensores, comunicam-se diretamente com um gateway que conecta a rede 
+              local à Internet. Essa capacidade de endereçamento IP permite uma integração eficaz com outras redes, 
+              facilitando a construção de aplicações de IoT.
+              <br />
+              <b>Vantagens:</b> Ideal para integração de dispositivos de IoT diretamente na Internet, pois suporta endereçamento IP completo.
+              <br />
+              <b>Limitações:</b> Limitado em alcance e largura de banda, adequado para redes locais de baixa potência e com poucos requisitos de dados.
+            </p>
+
+            <h3 class="mb-0">RFID (Radio Frequency Identification) e NFC (Near Field Communication)</h3>
+            <p>
+              <br />As tecnologias RFID e NFC utilizam comunicação de rádio para identificação e troca de dados entre dispositivos. RFID pode 
+              operar em distâncias variadas, dependendo do tipo de tag (ativa ou passiva), enquanto NFC é uma forma de RFID que funciona 
+              em distâncias muito curtas (até 10 cm). Na arquitetura de redes que utilizam RFID, leitores e tags interagem para coletar 
+              informações, enquanto no NFC, dispositivos se comunicam diretamente ao serem colocados próximos. Essas tecnologias são 
+              amplamente utilizadas em controle de acesso, rastreamento de produtos e pagamentos por aproximação.
+
+              <br />
+              <b>Vantagens:</b> Baixo consumo de energia (principalmente NFC) e compatibilidade com tags passivas (RFID), que não precisam de fonte de energia própria.
+              <br />
+              <b>Limitações:</b> Alcance limitado; RFID pode variar de centímetros a metros, e NFC é restrito a poucos centímetros.
+            </p>
+
+            <h3 class="mb-0">Zigbee</h3>
+            <p>
+              <br />Zigbee é uma arquitetura de rede projetada para comunicação de baixo consumo em aplicações de automação e monitoramento. 
+              Utiliza a faixa de frequência de 2,4 GHz e implementa uma topologia em malha, onde os dispositivos (nós) podem se comunicar entre 
+              si, aumentando a cobertura e a confiabilidade da rede. A arquitetura Zigbee é composta por dispositivos finais, que coletam dados, 
+              e coordenadores, que gerenciam a rede e rotear as informações para uma estação central. Essa flexibilidade permite o suporte a uma 
+              grande quantidade de dispositivos em um espaço restrito, tornando-a ideal para ambientes residenciais e industriais.
+
+              <br />
+              <b>Vantagens:</b> Consumo energético eficiente e flexibilidade de configuração de redes em malha, aumentando a cobertura e a confiabilidade.
+              <br />
+              <b>Limitações:</b> Largura de banda moderada (até 250 kbps), limita o uso em aplicações de alto volume de dados.
+            </p>
+
+            <h3 class="mb-0">IEEE 802.15.4e</h3>
+            <p>
+              <br />O padrão IEEE 802.15.4e é uma extensão do padrão IEEE 802.15.4, que oferece suporte a redes de sensores em ambientes industriais. 
+              Essa arquitetura fornece suporte para comunicação em slots de tempo, permitindo uma operação mais eficiente e sincronizada dos 
+              dispositivos na rede. A configuração em slot de tempo ajuda a evitar colisões de dados e a otimizar o uso do espectro de frequência. 
+              É frequentemente usada em aplicações que exigem alta confiabilidade e precisão temporal, como automação industrial e monitoramento de infraestrutura.
+
+              <br />
+              <b>Vantagens:</b> Suporte a tráfego sincronizado e crítico, ideal para ambientes industriais e automação onde o tempo é essencial.
+              <br />
+              <b>Limitações:</b> Menos popular fora de ambientes industriais; requer configuração cuidadosa para garantir eficiência.
+            </p>
+
+            <h3 class="mb-0">BLE (Bluetooth Low Energy)</h3>
+            <p>
+              <br />BLE é uma versão de baixo consumo do Bluetooth tradicional, focada em dispositivos móveis e wearables. Sua arquitetura 
+              permite comunicação de curto alcance, geralmente até 100 metros, com intervalos de transmissão intermitentes que economizam 
+              energia. Dispositivos BLE atuam como periféricos e centrais, onde os periféricos enviam dados e as centrais os coletam. Essa 
+              tecnologia é amplamente utilizada em dispositivos de saúde, rastreamento de proximidade e automação residencial, devido à sua 
+              compatibilidade com smartphones e tablets.
+
+              <br />
+              <b>Vantagens:</b> Compatível com a maioria dos smartphones e dispositivos móveis; ideal para comunicações de curto alcance e baixo consumo.
+              <br />
+              <b>Limitações:</b> Alcance limitado (normalmente até 100 metros) e largura de banda relativamente baixa.
+            </p>
+
+            <h3 class="mb-0">LoRa (Long Range)</h3>
+            <p>
+              <br />LoRa é uma tecnologia projetada para comunicação sem fio de longo alcance, com um foco particular em eficiência energética. 
+              Sua arquitetura permite a transmissão de dados a distâncias que podem ultrapassar 15 km em áreas rurais. 
+              O uso de modulação LoRa permite que os dispositivos operem em bandas de frequência subgigahertz, garantindo 
+              resistência a interferências e maior alcance. Essa tecnologia é frequentemente utilizada em aplicações de 
+              monitoramento ambiental e cidades inteligentes, onde a cobertura geográfica é essencial.
+
+              <br />
+              <b>Vantagens:</b> Longo alcance e baixo consumo de energia, com suporte a redes de sensores distribuídos em áreas extensas.
+              <br />
+              <b>Limitações:</b> Baixa taxa de transmissão de dados (normalmente até 50 kbps), inadequada para transmissão de grandes volumes de dados.
+            </p>
+
+            <h3 class="mb-0">LoRaWAN (Long Range Wide Area Network)</h3>
+            <p>
+              <br />LoRaWAN é um protocolo de comunicação que opera sobre a tecnologia LoRa, estruturando uma rede de longa distância com baixa 
+              potência. Na arquitetura LoRaWAN, dispositivos finais se conectam a gateways que transmitem os dados para um servidor central, 
+              permitindo a comunicação bidirecional. A rede LoRaWAN é altamente escalável, suportando um grande número de dispositivos em 
+              um único gateway. É comumente utilizada em aplicações IoT, como monitoramento de água, agricultura inteligente e gerenciamento de ativos.
+
+              <br />
+              <b>Vantagens:</b> Oferece escalabilidade para redes de sensores em larga escala, como cidades inteligentes, com baixo consumo de energia.
+              <br />
+              <b>Limitações:</b> Largura de banda baixa, limitada para transmissões esparsas e de pequeno volume de dados.
+
+              <br />
+
+              A tabela a seguir resume e compara as tecnologias apresentadas em detalhes:
+
+            </p>
+
+            <table>
+              <thead>
+                  <tr>
+                      <th>Tecnologia</th>
+                      <th>Alcance</th>
+                      <th>Consumo de Energia</th>
+                      <th>Largura de Banda</th>
+                      <th>Arquitetura</th>
+                      <th>Usos Comuns</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>6LoWPAN</td>
+                      <td>Curto (até 100 m)</td>
+                      <td>Baixo</td>
+                      <td>Moderado (até 250 kbps)</td>
+                      <td>Dispositivos conectam-se a um gateway para IPv6</td>
+                      <td>IoT, automação residencial, monitoramento ambiental</td>
+                  </tr>
+                  <tr>
+                      <td>RFID/NFC</td>
+                      <td>Curtíssimo (cm a m)</td>
+                      <td>Muito baixo</td>
+                      <td>Muito baixo</td>
+                      <td>Leitores e tags se comunicam; NFC tem comunicação direta</td>
+                      <td>Controle de acesso, rastreamento de produtos, pagamentos</td>
+                  </tr>
+                  <tr>
+                      <td>Zigbee</td>
+                      <td>Moderado (10-100 m)</td>
+                      <td>Baixo</td>
+                      <td>Moderado (até 250 kbps)</td>
+                      <td>Topologia em malha com dispositivos finais e coordenadores</td>
+                      <td>Automação residencial e industrial</td>
+                  </tr>
+                  <tr>
+                      <td>802.15.4e</td>
+                      <td>Curto a Moderado</td>
+                      <td>Baixo</td>
+                      <td>Moderado (até 250 kbps)</td>
+                      <td>Slots de tempo para sincronização em ambientes industriais</td>
+                      <td>Automação industrial, sistemas de controle</td>
+                  </tr>
+                  <tr>
+                      <td>BLE</td>
+                      <td>Curto (até 100 m)</td>
+                      <td>Baixo</td>
+                      <td>Moderado (até 1 Mbps)</td>
+                      <td>Dispositivos periféricos e centrais se comunicam</td>
+                      <td>Dispositivos vestíveis, monitoramento de saúde</td>
+                  </tr>
+                  <tr>
+                      <td>LoRa</td>
+                      <td>Longo (até 15 km)</td>
+                      <td>Muito baixo</td>
+                      <td>Baixo (até 50 kbps)</td>
+                      <td>Comunicação de longo alcance com modulação LoRa</td>
+                      <td>Cidades inteligentes, agricultura de precisão</td>
+                  </tr>
+                  <tr>
+                      <td>LoRaWAN</td>
+                      <td>Longo (até 15 km)</td>
+                      <td>Muito baixo</td>
+                      <td>Baixo (até 50 kbps)</td>
+                      <td>Dispositivos se conectam a gateways e servidores</td>
+                      <td>IoT em larga escala, monitoramento ambiental</td>
+                  </tr>
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <hr class="m-0" />
+
+    <!-- Casos de Uso e Exemplos Práticos-->
+    <section class="resume-section" id="Desafios">
+      <div class="resume-section-content">
+        <h2 class="mb-5">Desafios e Limitações</h2>
+        <p>
+          Apesar de seu vasto potencial, as Redes de Sensores Sem Fio (WSNs) enfrentam diversos desafios e limitações que 
+          afetam seu desempenho e longevidade. Esses desafios decorrem principalmente das restrições impostas pelos recursos 
+          limitados de energia, processamento e comunicação dos nós-sensores, bem como das condições imprevisíveis do ambiente 
+          em que são implantadas.
+        </p>
+        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="flex-grow-1">
+            <h3 class="mb-0">
+              Consumo de Energia
+            </h3>
+            <p>
+              <br />O consumo de energia é um dos maiores desafios em WSN. As baterias dos sensores são limitadas, 
+              e recarregá-las ou substituí-las frequentemente não é viável. Nesse âmbito, os avanços mais recentes propõem:<br /><br />
+
+              <b>Protocolos baseados em sono:</b> Técnicas como o protocolo S-MAC permitem que os sensores alternem entre estados ativos e de baixa energia.
+              <br />
+              <br />
+
+              <b>Harvesting de Energia:</b> Sensores podem coletar energia de fontes ambientais, como solar ou vibração, 
+              mas essa energia é intermitente e exige sistemas de armazenamento.
+
+
+            </p>
+            <h3 class="mb-0">
+              Largura de Banda e Falhas na Comunicação
+            </h3>
+            <p>
+              <br />As WSNs operam em frequências de rádio que podem sofrer interferências e congestionamento, especialmente em ambientes 
+              urbanos. Além disso, a transmissão de grandes quantidades de dados pode rapidamente consumir a energia dos sensores. Algumas técnicas 
+              para minimizar o tráfego e aumentar a confiabilidade são:<br /><br />
+
+              <b>Agregação de Dados:</b> Vários nós consolidam suas leituras antes de transmiti-las, reduzindo o tráfego.
+
+              <br />
+              <br />
+
+              <b>Roteamento baseado em Cluster:</b> Organiza os sensores em clusters e designa um nó líder (cabeça de cluster) 
+              para coletar e enviar os dados dos membros do cluster, o que diminui o número de transmissões diretas e economiza largura de banda.
+
+
+
+            </p>
+            <h3 class="mb-0">
+              Segurança e Privacidade
+            </h3>
+            <p>
+              <br />Devido à comunicação sem fio, os sensores são vulneráveis a uma série de ataques. Existe assim, uma preocupação constante, tanto com
+              informações falsas inseridas na rede quanto com a leitura de informações sigilosas que transitam entre os sensores<br /><br />
+
+              <b>Criptografia:</b> Adoção de criptografia leve, como AES-128, para proteger os dados. Em geral, existe uma dificuldade em 
+              implementar sistemas criptográficos robustos em dispositivos pequenos devido a escassez de recursos, nas RSSF não é diferente, 
+              o processamento custaria tempo e energia não disponíveis.
+              <br />
+              <br />
+
+              <b>Autenticação mútua:</b> Nós precisam verificar a identidade uns dos outros para evitar dispositivos maliciosos.
+              <br />
+              <br />
+
+              <b>Detecção de Anomalias:</b> Algoritmos de detecção podem identificar nós comprometidos ou falhas na rede em tempo real. 
+            </p>
+            <h3 class="mb-0">
+              Escalabilidade
+            </h3>
+            <p>
+              <br />À medida que o número de sensores aumenta, surgem desafios para manter a eficiência e a vida útil da rede. Ainda assim, a escalabilidade 
+              é uma das grandes motivações do uso das RSSF, algumas das ferramentas que possibilitam esse triunfo contra o desafio são:<br /><br />
+
+              <b>Auto-organização:</b> Protocolos como LEACH e RPL permitem que a rede se configure automaticamente, garantindo robustez 
+              mesmo com a adição ou remoção de nós.
+              <br />
+              <br />
+
+              <b>Gerenciamento de Dados Distribuído:</b> Em vez de enviar todas as leituras ao sink, os sensores processam localmente 
+              parte dos dados, aliviando a carga na rede central.
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr class="m-0" />
+
+    <!-- Desafios e Limitações-->
+    <section class="resume-section" id="CasosDeUso">
+      <div class="resume-section-content">
+        <h2 class="mb-5" style="margin-bottom: 0 !important">Aplicações e Casos de Uso</h2>
+        <p>
+          </br>
+          As redes de sensores sem fio (WSN) encontram aplicação em uma ampla gama de cenários, aproveitando sua capacidade de monitorar 
+          ambientes remotos, coletar dados em tempo real e operar de forma autônoma. A seguir, são detalhados alguns dos principais 
+          casos de uso em diferentes setores.
+          <br />
+        </p>
+        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="flex-grow-1">
+            <h3 class="mb-0">
+              Monitoramento Ambiental
+            </h3>
+            <p>
+              <br />As WSNs são amplamente utilizadas para monitorar condições ambientais, como temperatura, umidade, 
+              pressão atmosférica e qualidade do ar. Esses sistemas são essenciais em estudos climáticos e na prevenção de desastres naturais.
+              <br />
+              <br />
+
+              <b>Detecção de incêndios florestais:</b> Sensores implantados em florestas monitoram temperatura e umidade para detectar focos de incêndio.
+
+              <br />
+              <br />
+
+              <b>Monitoramento de rios e represas:</b> Sensores verificam o nível de água e alertam sobre riscos de inundação.
+              <br />
+              <br />
+
+              <b>Monitoramento de poluição atmosférica: </b> Cidades utilizam sensores de partículas para medir a qualidade do ar e emitir alertas à população.
+              <br />
+              <br />
+
+              <b>Desafios: </b> Os sensores estão frequentemente em locais de difícil acesso e precisam operar por longos períodos sem manutenção.
+              <br />
+              <br />
+
+              <b>Exemplo real: </b> A rede SmartSantander monitora dados ambientais na cidade de Santander, na Espanha.
+            </p>
+            <h3 class="mb-0">
+              Saúde (eHealth)
+            </h3>
+            <p>
+              <br />Na área da saúde, as WSNs são usadas para monitoramento remoto de pacientes, possibilitando diagnósticos mais rápidos e eficientes.
+
+              <br />
+              <br />
+
+              <b>Sensores vestíveis:</b> Dispositivos como pulseiras e relógios inteligentes monitoram frequência cardíaca, nível de oxigênio e pressão arterial.
+
+              <br />
+              <br />
+
+              <b>Monitoramento de pacientes em tempo real:</b> Hospitais usam sensores para monitorar pacientes à distância, garantindo intervenções rápidas em caso de emergência.
+              <br />
+              <br />
+
+              <b>Redes corporais (WBAN - Wireless Body Area Networks): </b> Sensores espalhados pelo corpo comunicam-se entre si e enviam dados para sistemas centralizados.
+              <br />
+              <br />
+
+              <b>Desafios: </b>  Segurança e privacidade dos dados são fundamentais, assim como a eficiência energética dos dispositivos vestíveis
+              <br />
+              <br />
+
+              <b>Exemplo real: </b> Dispositivos como o Apple Watch e Fitbit oferecem monitoramento contínuo de saúde com integração a sistemas médicos.
+            </p>
+            <h3 class="mb-0">
+              Cidades Inteligentes
+            </h3>
+            <div class="port-mapping d-flex justify-content-between align-items-start">
+              <div class="port-mapping-text" style="max-width: 40%;">
+                <p>
+                  <br />Em cidades inteligentes, as WSNs desempenham um papel vital para otimizar recursos e melhorar a qualidade de vida dos cidadãos.
+
+                  <br />
+                  <br />
+    
+                  <b>Monitoramento de tráfego:</b> Sensores instalados em vias monitoram o fluxo de veículos e ajudam a otimizar semáforos.
+    
+                  <br />
+                  <br />
+    
+                  <b>Iluminação pública inteligente:</b> Luminárias com sensores ajustam a intensidade da luz com base na presença de pessoas ou veículos.
+                  <br />
+                  <br />
+    
+                  <b>Gestão de resíduos: </b> Sensores em lixeiras indicam quando precisam ser esvaziadas, otimizando rotas de coleta.
+                  <br />
+                  <br />
+    
+                  <b>Desafios: </b> Manter a conectividade e segurança de uma grande quantidade de sensores distribuídos pela cidade.
+                  <br />
+                  <br />
+    
+                  <b>Exemplo real: </b> A cidade de Barcelona utiliza WSNs para monitorar tráfego, iluminação pública e irrigação de parques.
+              </div>
+              <div class="d-flex align-items-center pl-3">
+                  <img src="assets/img/wsn city.png" class="mx-auto d-block" style="max-width: 80%; height:70%;">
+              </div>
+            </div>
+            <h3 class="mb-0">
+              Agricultura de Precisão
+            </h3>
+            <div class="port-mapping d-flex justify-content-between align-items-start">
+              <div class="port-mapping-text" style="max-width: 40%;">
+                <p>
+                  <p>
+                    <br />Na agricultura moderna, as WSNs permitem um uso mais eficiente de recursos, como água e fertilizantes, aumentando a produtividade e reduzindo custos.
+      
+                    <br />
+                    <br />
+      
+                    <b>Monitoramento de solo:</b> Sensores medem umidade, pH e nutrientes, permitindo irrigação controlada.
+                    <br />
+                    <br />
+      
+                    <b>Controle de microclima em estufas:</b> Sensores controlam automaticamente ventilação e irrigação com base nas condições internas.
+                    <br />
+                    <br />
+      
+                    <b>Rastreamento de animais: </b> Em fazendas, sensores ajudam a monitorar a saúde e o comportamento de rebanhos.
+                    <br />
+                    <br />
+      
+                    <b>Desafios: </b>  A necessidade de longa autonomia dos sensores e a cobertura em áreas rurais extensas.
+                    <br />
+                    <br />
+      
+                    <b>Exemplo real: </b> A empresa Rika Sensor utiliza WSNs para oferecer os mais diversos insights personalizados para 
+                    agricultores com base em dados coletados diretamente no campo. Para mais informações, acesse:
+                    </br>
+
+                    <a href="https://www.rikasensor.com/">https://www.rikasensor.com/</a>
+                  </p>
+              </div>
+              <div class="d-flex align-items-center pl-3">
+                  <img src="assets/img/exemplo wsn agricultura.png" class="mx-auto d-block" style="max-width: 80%; height:70%;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr class="m-0" />
+
+    <!-- Conclusão-->
+    <section class="resume-section" id="Conclusão">
+      <div class="resume-section-content">
+        <h2 class="mb-5">Conclusão</h2>
+        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="flex-grow-1">
+            <p>
+              Sendo assim, o impacto das RSSFs na evolução da tecnologia de monitoramento e comunicação é incontestável. Elas oferecem 
+              soluções eficientes e adaptáveis para a coleta e transmissão de dados em tempo real em diversos setores, indo do rural 
+              ao urbano. Porém, para potencializar seus benefícios, ainda será preciso lidar com alguns desafios, tais como limitações 
+              de largura de banda, questões de segurança, privacidade e consumo de energia. No entanto, os avanços contínuos nas tecnologias 
+              de comunicação e nas estratégias de gerenciamento de energia seguem aprimorando a eficácia e a aplicabilidade das RSSFs, 
+              abrindo cada vez mais novas possibilidades de integração e automação, desempenhando um papel vital em um mundo cada vez mais interconectado.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr class="m-0" />
+
+    <!-- Bibliografia-->
+    <section class="resume-section" id="Bibliografia">
+      <div class="resume-section-content">
+        <h2 class="mb-5" style="margin-top: 0; margin-bottom: 0 !important">
+          Bibliografia
+        </h2>
+        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="flex-grow-1">
+            <p>
+              <br /><br />
+              <b>Resumo em vídeo, Toshiba</b>
+              <br />
+              Disponível em:
+              <a href="https://www.youtube.com/watch?v=W1aMmCZ25fw">
+                https://www.youtube.com/watch?v=W1aMmCZ25fw
+              </a>
+              <br /><br />
+              <b>Playlist, Passionate Professor</b>
+              <br />
+              Disponível em:
+              <a href="https://www.youtube.com/watch?v=KvNVVlBFFgY&list=PLbxBGRRnuvJffhUV5eo7LJq4-k8EPZle_">
+                https://www.youtube.com/watch?v=KvNVVlBFFgY&list=PLbxBGRRnuvJffhUV5eo7LJq4-k8EPZle_
+              </a>
+              <br /><br />
+              <b>Playlist, Engineering Funda</b>
+              <br />
+              Disponível em:
+              <a href="https://www.youtube.com/watch?v=PeyecI4qgi8&list=PLHKTPL-jkzUooOAPNV3h8HltzhparkZAQ">
+                https://www.youtube.com/watch?v=PeyecI4qgi8&list=PLHKTPL-jkzUooOAPNV3h8HltzhparkZAQ
+              </a>
+              <br /><br />
+              <b>Aulas, University of Crete</b>
+              <br />
+              Disponível em:
+              <a href="https://www.youtube.com/watch?v=PeyecI4qgi8&list=PLHKTPL-jkzUooOAPNV3h8HltzhparkZAQ">
+                https://www.youtube.com/watch?v=PeyecI4qgi8&list=PLHKTPL-jkzUooOAPNV3h8HltzhparkZAQ
+              </a>
+              <br /><br />
+              <b>Playlist, Waltenegus Dargie</b>
+              <br />
+              Disponível em:
+              <a
+                href="https://www.youtube.com/watch?v=sayPu0biqQk&list=PLhjFbo2uE8q2FiaqRw4RO2MqNaJY4pi9O">
+                https://www.youtube.com/watch?v=sayPu0biqQk&list=PLhjFbo2uE8q2FiaqRw4RO2MqNaJY4pi9O
+              </a>
+              <br /><br />
+              <b>Apresentação, Lucas Saar Cerqueira</b>
+              <br />
+              Disponível em:
+              <a
+                href="https://www.youtube.com/watch?v=BIejBvXadM8">
+                https://www.youtube.com/watch?v=BIejBvXadM8
+              </a>
+              <br /><br />
+              <b>Aulas, USP</b>
+              <br />
+              Disponível em:
+              <a href="https://eaulas.usp.br/portal/video.action/video?idItem=24106">
+                https://eaulas.usp.br/portal/video.action/video?idItem=24106
+              </a>
+              <br /><br />
+              <b>Artigo, UFMG</b>
+              <br />
+              Disponível em:
+              <a
+                href="https://homepages.dcc.ufmg.br/~loureiro/cm/docs/sbrc03.pdf">
+                https://homepages.dcc.ufmg.br/~loureiro/cm/docs/sbrc03.pdf
+              </a>
+              <br /><br />
+              <b>Página, Teleco</b>
+              <br />
+              Disponível em:
+              <a
+                href="https://www.teleco.com.br/tutoriais/tutorialrssf/pagina_1.asp">
+                https://www.teleco.com.br/tutoriais/tutorialrssf/pagina_1.asp
+              </a>
+              <br /><br />
+              <b>Página, Wikipédia</b>
+              <br />
+              Disponível em:
+              <a
+                href="https://en.wikipedia.org/wiki/Wireless_sensor_network">
+                https://en.wikipedia.org/wiki/Wireless_sensor_network
+              </a>
+              <br /><br />
+              <b>Página, Geeks for Geeks</b>
+              <br />
+              Disponível em:
+              <a
+                href="https://www.geeksforgeeks.org/wireless-sensor-network-wsn/">
+                https://www.geeksforgeeks.org/wireless-sensor-network-wsn/
+              </a>
+              <br /><br />
+              <b>Página, Wikipédia</b>
+              <br />
+              Disponível em:
+              <a
+                href="https://en.wikipedia.org/wiki/Wireless_sensor_network">
+                https://en.wikipedia.org/wiki/Wireless_sensor_network
+              </a>
+              <br /><br />
+              <b>Página, MPS</b>
+              <br />
+              Disponível em:
+              <a
+                href="https://www.monolithicpower.com/en/learning/mpscholar/sensors/advanced-topics-in-sensing/wireless-sensing-networks?srsltid=AfmBOoqsTrl4VqIVdwi4vITKyyXiKhJigFybRgcEUGNp5g5Xv7H_RWO_">
+                https://www.monolithicpower.com/en/learning/mpscholar/sensors/advanced-topics-in-sensing/wireless-sensing-networks?srsltid=AfmBOoqsTrl4VqIVdwi4vITKyyXiKhJigFybRgcEUGNp5g5Xv7H_RWO_
+              </a>
+              <br /><br />
+              <b>Livros:</b>
+              <br /><br />
+
+              KUROSE, J. F. e ROSS, K. - Redes de Computadores e a Internet - 5ª Ed
+
+              <br /><br />
+
+              TANENBAUM, A.; FEAMSTER, N.; WETHERALL, D. Redes de computadores. 6. ed. São Paulo: Pearson / Porto Alegre: Bookman, 2021.
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr class="m-0" />
+  </div>
+</body>
+
+</html>
